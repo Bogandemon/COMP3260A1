@@ -1,8 +1,9 @@
 /* Classname: Analysis
- * Programmer: Kyle Dryden, Joshua O'Brien
+ * Programmer: Kyle Dryden
  * Version: Java 14
- * Date: 15/03/2023
- * Description: 
+ * Date: 16/03/2023
+ * Description: Analysis tool used to perform the actual analysis from the files. Utilises a
+ * 				hashmap to provide letter-value pairs.
  */
 
 package primary;
@@ -10,19 +11,23 @@ package primary;
 import java.util.HashMap;
 
 public class Analysis {
-	private String testString;
+	
+	private String testString; //String thats provided from the files.
+	
+	/* String-Integer paired HashMap used to pair the letters found with their occurrence values. Used for
+	 * single-letter substitution, amongst diagram and trigram findings.
+	 */
 	private HashMap<String, Integer> occurrenceValues;
 	
-	public Analysis() {
-		testString = "";
-		occurrenceValues = new HashMap<String, Integer>();
-	}
-	
+	//Constructor that gets a string sent to it.
 	public Analysis(String testString) {
 		this.testString = testString;
 		occurrenceValues = new HashMap<String, Integer>();
 	}
 	
+	//TO-DO: Replace most common letters found in ciphertext with plaintext variants.
+	
+	//Public method that finds the how many of each ciphertext letters there are.
 	public HashMap<String, Integer> letterFrequency() {
 		String[] splitString = testString.split("");
 		for (int i=0; i<testString.length(); i++) {
