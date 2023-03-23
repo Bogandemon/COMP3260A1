@@ -9,8 +9,11 @@
 package primary;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import utility.Resources;
 
 public class COMP3260 {
@@ -21,8 +24,10 @@ public class COMP3260 {
 		String testString = ""; //String variable that concatenates all strings from the file and list of strings to a singular string.
 		String fileLocation = "Files/"; //String variable that holds the file the ciphertext files are found in.
 		String finalOutput = ""; //String variable that will return the final output once the cipher is decrypted.
+		String c4 = "rouoprkbuoxrouopyralhdwuoxrouoxdxoaaiokarzluoxrflwrlzluewrzlirpgrploplgjsclzlirbxscxsajrxtoaowwofsdauegrploploxggsxsabxschsikliaorxcjoaorwpulrgsxaksxpdwaogskasihsiraoxgxlzlijozlajsdtjrjozloilpylkahsiulgrkrxloxggskasipflprglproulmailulwepdylipararsdppdhhrkrlxawepsasilpylkaulgrkrxloxecoerouclwwlgdkoalglxsdtjxsaasflpdylipararsdpfdaroupdylipararsdpxsrilhdplasksxpdwaogskasihisupyralajoaesdyisfofwecrwwxsadxglipaoxgclwwrdxglipaoxgraajsdtjshksdiplrkoxalmyworxcjsrarpyilkrplweajoarouusiarherxtrxajrpkoplfeuepyralrouylihlkaweclwwocoilajoarkoxxsayoesdaajlgskasipfexsaksxpdwarxtajlurbxscflaaliajoxoxesxlajoafeowwajrprousxwerxqdirxtueplwhoxgxssxllwplfdaparwwrhrgsxaksxpdwaogskasirarphisupyraluewrzlirpfogclwwwlaratlacsiplrjozlfllxtsrxtsxwrblajoahsiowsxtarulaclxaeeloipxscrouhsiaerdplgasflrxajltszlixulxaplizrklfdaouxswsxtlircopopyralhdwshhrkrowrcopidgloxgassbywlopdilrxflrxtpsrgrgxsaaoblfirflpesdpllpsrcopfsdxgashrxgoilksuylxplrxajoaoawlopaoyssiqlpafdarcrwwxsapkioakjrasdarcisalraajrxbrxtracsdwgpsdxgzliecraaefdaxscajoarjozlpllxueplwhajoarsxwecoxalgaspjscshhrxoglpyrkofwlcoercrwwxsapkioakjrasdasxydiysplcjlxylararsxlipdplgasksulhsirxhsiuoarsxasajlaofwloacjrkjrpoardplgastirxgueallajoaajluoxghlwarxalxpllxqseulxacjlxrpdkkllglgrxuobrxtoxefsgedxjoyyerowuspagrgpdkkllghsiajluspayoiaajleclilowwarurgylsywlshksdiplajleclilylararsxlip";
+		String c4Test = "rouoprkbuoxrouopyrTEhdwuoxrouoxdxoTTiokTrzEuoxrfEwrEzEuewrzEirpgrpEopEgHscEzEirbxscxsTHrxtoTowwofsdTuegrpEopEoxggsxsTbxschsikEiTorxcHoTorwpuErgsxTksxpdwTogskTsihsirToxgxEzEiHozETHsdtHrHozEoiEpyEkThsiuEgrkrxEoxggskTsipfEprgEprouEmTiEuEwepdyEipTrTrsdppdhhrkrExTwepsTsiEpyEkTuEgrkrxEoxecoeroucEwwEgdkoTEgExsdtHxsTTsfEpdyEipTrTrsdpfdTroupdyEipTrTrsdpxsriEhdpETsksxpdwTogskTsihisupyrTETHoTesdyisfofwecrwwxsTdxgEipToxgcEwwrdxgEipToxgrTTHsdtHshksdipErkoxTEmyworxcHsrTrpyiEkrpEweTHoTrouusiTrherxtrxTHrpkopEfeuepyrTErouyEihEkTwecEwwocoiETHoTrkoxxsTyoesdTTHEgskTsipfexsTksxpdwTrxtTHEurbxscfETTEiTHoxoxesxETHoTfeowwTHrprousxwerxqdirxtuepEwhoxgxssxEEwpEfdTpTrwwrhrgsxTksxpdwTogskTsirTrphisupyrTEuewrzEirpfogcEwwwETrTtETcsipErHozEfEExtsrxtsxwrbETHoThsiowsxtTruETcExTeeEoipxscrouhsiTerdpEgTsfErxTHEtszEixuExTpEizrkEfdTouxswsxtEircopopyrTEhdwshhrkrowrcopidgEoxgTssbywEopdiErxfErxtpsrgrgxsTTobEfirfEpesdpEEpsrcopfsdxgTshrxgoiEksuyExpErxTHoToTwEopToyssiqEpTfdTrcrwwxsTpkioTkHrTsdTrcisTErTTHrxbrxtrTcsdwgpsdxgzEiecrTTefdTxscTHoTrHozEpEExuepEwhTHoTrsxwecoxTEgTspHscshhrxogEpyrkofwEcoercrwwxsTpkioTkHrTsdTsxydiyspEcHExyETrTrsxEipdpEgTsksuEhsirxhsiuoTrsxTsTHETofwEoTcHrkHrpoTrdpEgTstirxgueTEETHoTTHEuoxghEwTrxTExpEExqseuExTcHExrpdkkEEgEgrxuobrxtoxefsgedxHoyyerowuspTgrgpdkkEEghsiTHEuspTyoiTTHEecEiEowwTrurgyEsywEshksdipETHEecEiEyETrTrsxEip";
 		
-		String testFile = fileLocation + "c1"; //Current test variable for changing the ciphered file being tested.
+		String testFile = fileLocation + "c4"; //Current test variable for changing the ciphered file being tested.
 		
 		//Uses utility file that reads all lines from the ciphered file.
 		fileStrings = Resources.readAllLines(testFile);
@@ -40,5 +45,24 @@ public class COMP3260 {
 		for (String i : letterFrequency.keySet()) {
 			System.out.println(i + " " + letterFrequency.get(i));
 		}
+		
+		System.out.println((17+(4*10)) % 26);
+		
+		printCommonSubstrings(c4Test, 3);
 	}
+	
+	public static void printCommonSubstrings(String str, int len) {
+        Map<String, Integer> substringMap = new HashMap<>();
+        for (int i = 0; i <= str.length() - len; i++) {
+            String substring = str.substring(i, i + len);
+            substringMap.put(substring, substringMap.getOrDefault(substring, 0) + 1);
+        }
+
+        List<Map.Entry<String, Integer>> sortedList = new ArrayList<>(substringMap.entrySet());
+        sortedList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+        for (Map.Entry<String, Integer> entry : sortedList) {
+            System.out.println(entry.getKey() + " appears " + entry.getValue() + " times.");
+        }
+    }
 }
