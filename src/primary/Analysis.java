@@ -47,6 +47,24 @@ public class Analysis {
 		return occurrenceValues;
 	}
 	
+	//Public method that checks a specific index of each period, given a period is seen to exist in the cipher.
+	public HashMap<String, Integer> periodFrequency(int index) {
+		String[] splitString = testString.split(" ");
+		for (int i=0; i<splitString.length; i++) {
+			String testLetter = splitString[i].substring(index, index+1);
+			
+			if (occurrenceValues.get(testLetter) == null) {
+				occurrenceValues.put(testLetter,  1);
+			}
+			
+			else {
+				occurrenceValues.put(testLetter, occurrenceValues.get(testLetter) + 1);
+			}
+		}
+		
+		return occurrenceValues;
+	}
+	
 	public double indexOfCoincidence(int N) {
 		double returnValue = 0.0;
 		

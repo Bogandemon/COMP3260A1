@@ -42,7 +42,7 @@ public class COMP3260 {
 		//Analysis object that will be used to perform different analytical methods to the ciphered string.
 		Analysis analysisPiece = new Analysis(testString);
 		
-		HashMap<String, Integer> letterFrequency = analysisPiece.letterFrequency();
+		HashMap<String, Integer> letterFrequency = analysisPiece.periodFrequency(1);
 		
 		for (String i : letterFrequency.keySet()) {
 			System.out.println(i + " " + letterFrequency.get(i));
