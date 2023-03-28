@@ -24,9 +24,7 @@ public class Analysis {
 		this.testString = testString;
 		occurrenceValues = new HashMap<String, Integer>();
 	}
-	
-	//TO-DO: Replace most common letters found in ciphertext with plaintext variants.
-	
+		
 	//Public method that finds the how many of each ciphertext letters there are.
 	public HashMap<String, Integer> letterFrequency() {
 		String[] splitString = testString.split("");
@@ -47,5 +45,19 @@ public class Analysis {
 		}
 		
 		return occurrenceValues;
+	}
+	
+	public double indexOfCoincidence(int N) {
+		double returnValue = 0.0;
+		
+		for (String i : occurrenceValues.keySet()) {
+			int Fi = occurrenceValues.get(i);
+			
+			int topValue = Fi * (Fi-1);
+			int bottomValue = N * (N-1);
+			returnValue += (double) topValue / bottomValue;
+		}
+		
+		return returnValue;
 	}
 }
