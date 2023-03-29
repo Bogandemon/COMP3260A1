@@ -18,11 +18,13 @@ public class Analysis {
 	 * single-letter substitution, amongst diagram and trigram findings.
 	 */
 	private HashMap<String, Integer> occurrenceValues;
+	private String alphabet;
 	
 	//Constructor that gets a string sent to it.
 	public Analysis(String testString) {
 		this.testString = testString;
 		occurrenceValues = new HashMap<String, Integer>();
+		alphabet = "abcdefghijklmnopqrstuvwxyz";
 	}
 		
 	//Public method that finds the how many of each ciphertext letters there are.
@@ -63,6 +65,34 @@ public class Analysis {
 		}
 		
 		return occurrenceValues;
+	}
+	
+	public String shiftWords(String keyword) {
+		String resultString = "";
+		String[] splitString = testString.split(" ");
+		int[] indexes = new int[keyword.length()];
+		
+		for (int i=0; i<keyword.length(); i++) {
+			char testChar = keyword.charAt(i);
+			
+			indexes[i] = alphabet.indexOf(testChar);
+		}
+			
+		for (int i=0; i<splitString.length; i++) {
+			
+			String periodString = "";
+			
+			for (int m=0; m<splitString[i].length(); m++) {
+				String replaceChar = "";
+				int replaceIndex = (alphabet.indexOf(splitString[i].substring(m, m+1)) + indexes[m]) % 26;
+				replaceChar = alphabet.substring(replaceIndex, replaceIndex+1);
+				periodString += replaceChar;
+			}
+			
+			resultString += periodString + " ";
+		}
+		
+		return resultString;
 	}
 	
 	public double indexOfCoincidence(int N) {

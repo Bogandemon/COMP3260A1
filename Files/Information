@@ -4,14 +4,25 @@ c1:
 	- Polyalphabetic cipher
 	- Period looking to be 7-9
 	- Testing period 7
+	- Testing the word 'helpful' as the key (does not work).
 
 c2:
 	- Transposition cipher
-	- Not sure what Josh has tested
+	- Josh has tested Columnar
+	- Railway transposition does not seem applicable
 
 c3:
-	- Monoalphabetic cipher
-
-c4:
 	- Polyalphabetic cipher
 	- Period looking to be 7-9 (likely 8)
+
+c4: (f(p) = (ap + b) mod 26
+
+	- Monoalphabetic cipher
+	- Testing two greatest to be e (144, 143) as a caesar shift (moving forward. Does not work)
+	- Testing two greatest to be e except now backwards (also does not work)
+	- Tried an affine cipher with a being 9. p was 11 and b was 9. (did not work)
+	
+	
+TO-DO:
+	- Find new keyword for c1. (Thinking its a vigenere
+	- Test for other types of polyalphabetic ciphers.
